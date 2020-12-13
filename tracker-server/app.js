@@ -13,6 +13,7 @@ connection.connect();
 
 function rowToObject(row) {
 	return {
+		id: row.id,
 	 	year: row.year,
 		month: row.month, 
 		day: row.day,
