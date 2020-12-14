@@ -23,9 +23,9 @@ function rowToObject(row) {
 	};
 }
 
-app.get('/track/:month/:day', (request, response) => {
-	const query = 'SELECT year, month, day,goal,  curweight, message, id FROM memory WHERE is_deleted = 0 AND month = ? AND day = ? ORDER BY year DESC, updated_at DESC';
-	const params = [request.params.month, request.params.day];
+app.get('/track/:month', (request, response) => {
+	const query = 'SELECT year, month, day,goal,  curweight, message, id FROM memory WHERE is_deleted = 0 AND month = ? ORDER BY year DESC, updated_at DESC';
+	const params = [request.params.month];
 	connection.query(query, params, (error, rows) => {
 		response.send({
 			ok: true,
